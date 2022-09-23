@@ -1,6 +1,6 @@
 <h1>INGRESO</h1>
 <form>
-    <div class="mb-3 mt-3">
+    <div class="form-group">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" />
     </div>

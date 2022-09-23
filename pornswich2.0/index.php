@@ -3,6 +3,7 @@
 <?php
 
 require_once "controladores/plantilla.controlador.php";
+require_once "controladores/formularios.php";
 
 $plantilla = new Controladorplantilla();
 

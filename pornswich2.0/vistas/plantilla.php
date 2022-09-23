@@ -12,7 +12,7 @@
 
   <!-- #font awesome #-->
   <script src="https://kit.fontawesome.com/8877593f2a.js" crossorigin="anonymous"></script>
-
+  <script src="https://kit.fontawesome.com/8877593f2a.js" crossorigin="anonymous"></script>
   <!--# boostrap #-->
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
     <div class="container">
       <ul class="nav nav-justified py2 nav-pills">
 
-        
+
         <?php if (isset($_GET["pagina"])) : ?>
 
           <?php if (($_GET["pagina"]) == "inicio") : ?>
@@ -147,11 +147,10 @@
           $_GET["pagina"] == "salir"
         ) {
           include "paginas/" . $_GET["pagina"] . ".php";
-        }else{
-          
+        } else {
+          // TODO: continuar esto  
+          include "paginas/error404.php";
         }
-
-
       } else {
         include "paginas/registro.php";
       }
