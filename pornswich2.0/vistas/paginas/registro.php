@@ -1,3 +1,4 @@
+<h1>REGISTRO</h1>
 <form action="">
     <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email:</label>

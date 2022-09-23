@@ -1,3 +1,4 @@
+<h1>INGRESO</h1>
 <form>
     <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email:</label>
