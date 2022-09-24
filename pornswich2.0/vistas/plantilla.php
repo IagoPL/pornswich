@@ -12,7 +12,8 @@
 
   <!-- #font awesome #-->
   <script src="https://kit.fontawesome.com/8877593f2a.js" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/8877593f2a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
   <!--# boostrap #-->
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
