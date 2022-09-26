@@ -1,29 +1,32 @@
+<?php
+$usuarios = ControladorFormularios::mdlRegistro($tabla);
+?>
 <table class="table">
     <thead>
         <tr>
 
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Acciones</th>
 
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-        </tr>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-        </tr>
-        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
 
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
+            <td>
+                <div class="btn-group">
+
+                    <button class="btn btn-warning">Editar</button>
+                    <!-- TODO: meter logos -->
+                    <button class="btn btn-danger">Borrar</button>
+                
+                </div>
+            </td>
         </tr>
+
     </tbody>
 </table>

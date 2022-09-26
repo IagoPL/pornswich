@@ -16,4 +16,17 @@ class ControladorFormularios
             return $respuesta;
         }
     }
+
+static public function ctrSeleccionarRegistros(){
+    $tabla = "registros";
+    
+    $respuesta = ModeloFormularios::mdlRegistro($tabla); 
+
+return $respuesta;
+}
+
+ 
+
+
+
 }
