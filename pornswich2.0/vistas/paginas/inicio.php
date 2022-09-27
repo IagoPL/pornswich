@@ -1,21 +1,32 @@
 <?php
 $usuarios = ControladorFormularios::ctrSeleccionarRegistros();
-echo'<pre>';print_r($usuarios);echo'</pre>';
+// ver contenido del array
+// echo '<pre>';
+// print_r($usuarios);
+// echo '</pre>';
 ?>
 <table class="table">
     <thead>
-        <tr>
+ 
+            <tr>
 
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Acciones</th>
+                <th>Nombre</th>
+                <th>Enlace</th>
+                <th>Duracion</th>
+                <th>Acciones</th>
 
-        </tr>
+            </tr>
     </thead>
     <tbody>
+
+    <?php foreach ($usuarios as $key => $value) : ?>
+
         <tr>
-            <td></td>
-            <td></td>
+            <td><?php echo $value ["nombre"]; ?> </td>
+            <td><?php echo $value ["correo"]; ?></td>
+            <td><?php echo $value ["id"]; ?></td>
+            
+            
 
             <td>
                 <div class="btn-group">
@@ -23,10 +34,10 @@ echo'<pre>';print_r($usuarios);echo'</pre>';
                     <button class="btn btn-warning">Editar</button>
                     <!-- TODO: meter logos -->
                     <button class="btn btn-danger">Borrar</button>
-                
+
                 </div>
             </td>
         </tr>
-
+    <?php endforeach ?>
     </tbody>
 </table>
