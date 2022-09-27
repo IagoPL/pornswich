@@ -18,14 +18,20 @@ class ModeloFormularios
         $stmt->bindParam(":correo", $datos["correo"], PDO::PARAM_STR);
         $stmt->bindParam(":pswd", $datos["pswd"], PDO::PARAM_STR);
 
-        if($stmt->execute()){
-            return"oky dokie";
+        if ($stmt->execute()) {
+            return "oky dokie";
+        } else {
 
-        }else{
-           
             print_r(Conexion::conectar()->errorInfo());
-
         }
+    }
 
+    static public function mdlSeleccionarRegistros($tabla)
+    {
+
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }

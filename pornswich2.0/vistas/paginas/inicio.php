@@ -1,5 +1,6 @@
 <?php
-$usuarios = ControladorFormularios::mdlRegistro($tabla);
+$usuarios = ControladorFormularios::ctrSeleccionarRegistros();
+echo'<pre>';print_r($usuarios);echo'</pre>';
 ?>
 <table class="table">
     <thead>
@@ -13,7 +14,6 @@ $usuarios = ControladorFormularios::mdlRegistro($tabla);
     </thead>
     <tbody>
         <tr>
-            <td></td>
             <td></td>
             <td></td>
 
