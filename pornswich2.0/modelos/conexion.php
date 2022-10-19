@@ -10,7 +10,7 @@ class Conexion
 
         //PDO("nombre del servidor"; "nombre de la base de datos", "usuario", "contraseña") 
 
-        $link = new PDO("mysql: host=localhost;dbname=actividad-php-crud", "root","");
+        $link = new PDO("mysql:host=localhost;dbname=actividad-php-crud", "root","");
 
         $link->exec("set names utf8");
 
