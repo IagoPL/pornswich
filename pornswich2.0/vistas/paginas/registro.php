@@ -9,9 +9,7 @@
     <div class="form-group">
 
         <label for="email" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" id="email" placeholder="Entra el email:" name="email" required />
-
-    </div>
+        <input type="email" class="form-control" id="email" placeholder="Entra el email:" name="email" required /> 
 
 
     <div class="form-group">
