@@ -26,6 +26,28 @@ class ModeloFormularios
         }
     }
 
+    static public function mdlNuevoVideo($tabla, $datos)
+    {
+
+        // statement -> declaracion 
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre_video,enlace, autor, descripcion) VALUES (:nombre_video,:enlace,:autor,:descripcion)");
+
+        /*bindParam(), vincula una vatriable php a un parametro de sustitucion con nombre o de signo de interrogacion correcpondientes a la secuencia sql que fue usada para preparar la centencia*/
+
+        $stmt->bindParam(":nombre_video", $datos["nombre_video"], PDO::PARAM_STR);
+        $stmt->bindParam(":enlace", $datos["enlace"], PDO::PARAM_STR);
+        $stmt->bindParam(":autor", $datos["autor"], PDO::PARAM_STR);
+        $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "oky dokie";
+        } else {
+
+            print_r(Conexion::conectar()->errorInfo());
+        }
+    }
+
     static public function mdlSeleccionarRegistros($tabla, $item, $valor)
     {
 

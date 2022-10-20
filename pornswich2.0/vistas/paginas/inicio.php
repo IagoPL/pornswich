@@ -1,4 +1,22 @@
 <?php
+
+if(isset($_SESSION["validarIngreso"])) {
+
+    if($_SESSION["validarIngreso"] != "ok") {
+
+        echo '<script> window.location = "index.php?pagina=ingreso"; </script>';
+        return;
+
+} else {
+
+    echo '<script> window.location = "index.php?pagina=ingreso"; </script>';
+    return;
+
+}
+
+}
+
+
 $usuarios = ControladorFormularios::ctrSeleccionarRegistros();
 // ver contenido del array
 // echo '<pre>';
@@ -7,37 +25,39 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros();
 ?>
 <table class="table">
     <thead>
- 
-            <tr>
 
-                <th>Nombre</th>
-                <th>Enlace</th>
-                <th>Duracion</th>
-                <th>Acciones</th>
+        <tr>
 
-            </tr>
+            <th>Nombre</th>
+            <th>Enlace</th>
+            <th>Autor</th>
+
+            <th>Acciones</th>
+
+        </tr>
+
     </thead>
     <tbody>
 
-    <?php foreach ($usuarios as $key => $value) : ?>
+        <?php foreach ($usuarios as $key => $value) : ?>
 
-        <tr>
-            <td><?php echo $value ["nombre"]; ?> </td>
-            <td><?php echo $value ["correo"]; ?></td>
-            <td><?php echo $value ["id"]; ?></td>
-            
-            
+            <tr>
+                <td><?php echo $value["nombre_video"]; ?> </td>
+                <td><?php echo $value["enlace"]; ?></td>
+                <td><?php echo $value["autor"]; ?></td>
 
-            <td>
-                <div class="btn-group">
 
-                    <button class="btn btn-warning">Editar</button>
-                    <!-- TODO: meter logos -->
-                    <button class="btn btn-danger">Borrar</button>
 
-                </div>
-            </td>
-        </tr>
-    <?php endforeach ?>
+                <td>
+                    <div class="btn-group">
+
+                        <a href="index.php?pagina=editar&id=<?php echo  $value["id"]; ?>" class="btn btn-warning">Editar</a>
+                        <!-- TODO: meter logos -->
+                        <button class="btn btn-danger">Borrar</button>
+
+                    </div>
+                </td>
+            </tr>
+        <?php endforeach ?>
     </tbody>
 </table>

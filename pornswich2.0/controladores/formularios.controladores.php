@@ -9,7 +9,7 @@ class ControladorFormularios
         if (isset($_POST["nombre"])) {
 
             $tabla = "registros";
-            $datos = array("nombre" => $_POST["nombre"], "correo" => $_POST["ingresoEmail"], "pswd" => $_POST["pswd"]);
+            $datos = array("nombre" => $_POST["nombre"], "correo" => $_POST["email"], "pswd" => $_POST["pswd"]);
 
             $respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
 
@@ -17,9 +17,23 @@ class ControladorFormularios
         }
     }
 
+    static public function ctrFormularioVideos()
+    {
+
+        if (isset($_POST["nombre_video"])) {
+
+            $tabla = "videos";
+            $datos = array("nombre_video" => $_POST["nombre_video"], "enlace" => $_POST["enlace"], "autor" => $_POST["autor"], "descripcion" => $_POST["descripcion"]);
+
+            $respuesta = ModeloFormularios::mdlNuevoVideo($tabla, $datos);
+
+            return $respuesta;
+        }
+    }
+
     static public function ctrSeleccionarRegistros()
     {
-        $tabla = "registros";
+        $tabla = "videos";
 
         $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla, null, null);
 
@@ -42,7 +56,20 @@ class ControladorFormularios
 
             if ($respuesta["correo"] == $_POST["ingresoEmail"] && $respuesta["pswd"] == $_POST["ingresoPswd"]) {
 
-                echo 'ingreso correcto';
+                $_SESSION["validarIngreso"] = "ok";
+
+                echo '<script>
+        
+                if(window.history.replaceState){
+                    window.history.replaceState(null,null,window.location.href);
+                }
+
+                window.location = "index.php?pagina=inicio";
+            
+                </script>';
+
+                echo '<div class="alert alert-success"> Ingreso correcto </div>';
+                
             } else {
 
                 echo '<script>

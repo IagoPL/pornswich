@@ -1,1 +1,1 @@
-<h1>SALIR</h1>
+<h1>formulario.entrada</h1>

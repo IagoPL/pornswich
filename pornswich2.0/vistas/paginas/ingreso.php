@@ -1,5 +1,5 @@
 <h1>INGRESO</h1>
-<form>
+<form class="p-5 bg-light" method="POST">
     <div class="form-group">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="ingresoEmail" />
@@ -25,7 +25,10 @@
 
     ?>
 
-    <button type="submit" class="btn btn-primary">
+
+    <!-- //TODO: arreglar boton, que se va directamente a la otra pagina y no lo comprueba -->
+
+    <button type="submit" class="btn btn-warning">
         Enviar
     </button>
 

@@ -12,7 +12,7 @@
         <input type="email" class="form-control" id="email" placeholder="Entra el email:" name="email" required /> 
 
 
-    <div class="form-group">
+    <div class="form-group ">
 
         <label for="nombre" class="form-label">Nombre</label>
         <input type="nombre" class="form-control" id="nombre" placeholder="Entra el nombre:" name="nombre" required />
@@ -53,7 +53,7 @@
 
     ?>
 
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-warning">
         Enviar
     </button>
 </form>

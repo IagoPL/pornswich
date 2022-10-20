@@ -318,5 +318,5 @@
 </div>
 
 <div class="text-center">
-    <a href="index.php?pagina=registro" class="btn btn-primary"> Volver</a>
+    <a href="index.php?pagina=registro" class="btn btn-warning"> Volver</a>
 </div>

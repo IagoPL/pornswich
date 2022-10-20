@@ -1,3 +1,9 @@
+<?php
+session_Start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,16 +90,16 @@
 
           <?php endif ?>
 
-          <?php if (($_GET["pagina"]) == "salir") : ?>
+          <?php if (($_GET["pagina"]) == "formulario.entrada") : ?>
 
             <li class="nav-item">
-              <a class="nav-link active" href="index.php?pagina=salir">SALIR</a>
+              <a class="nav-link active" href="index.php?pagina=formulario.entrada">NUEVO VIDEO</a>
             </li>
 
           <?php else : ?>
 
             <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=salir">SALIR</a>
+              <a class="nav-link" href="index.php?pagina=formulario.entrada">NUEVO VIDEO</a>
             </li>
 
 
@@ -118,7 +124,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=salir">SALIR</a>
+            <a class="nav-link" href="index.php?pagina=formulario.entrada">NUEVO VIDEO</a>
           </li>
 
         <?php endif ?>
@@ -145,7 +151,8 @@
           $_GET["pagina"] == "registro" ||
           $_GET["pagina"] == "ingreso" ||
           $_GET["pagina"] == "inicio" ||
-          $_GET["pagina"] == "salir"
+          $_GET["pagina"] == "editar" ||
+          $_GET["pagina"] == "formulario.entrada"
         ) {
           include "paginas/" . $_GET["pagina"] . ".php";
         } else {
