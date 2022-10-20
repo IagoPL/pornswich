@@ -1,5 +1,5 @@
 <?php
-session_Start();
+session_start(); //TODO: arreglar esto
 ?>
 
 
@@ -105,6 +105,19 @@ session_Start();
 
           <?php endif ?>
 
+          <?php if (($_GET["pagina"]) == "salir") : ?>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="index.php?pagina=salir">SALIR</a>
+            </li>
+
+          <?php else : ?>
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?pagina=salir">SALIR</a>
+            </li>
+          <?php endif ?>
+
         <?php else : ?>
 
           <!-- GET: $GET[variable] son variables que se pasan como parametros a traces de una URL
@@ -125,6 +138,10 @@ session_Start();
 
           <li class="nav-item">
             <a class="nav-link" href="index.php?pagina=formulario.entrada">NUEVO VIDEO</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?pagina=salir">SALIR</a>
           </li>
 
         <?php endif ?>
@@ -152,6 +169,7 @@ session_Start();
           $_GET["pagina"] == "ingreso" ||
           $_GET["pagina"] == "inicio" ||
           $_GET["pagina"] == "editar" ||
+          $_GET["pagina"] == "salir" ||
           $_GET["pagina"] == "formulario.entrada"
         ) {
           include "paginas/" . $_GET["pagina"] . ".php";
