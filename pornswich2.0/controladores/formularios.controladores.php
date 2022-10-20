@@ -1,119 +1,119 @@
 <?php
 
-class ControladorFormularios
-{
-
-    static public function ctrRegistro()
+    class ControladorFormularios
     {
 
-        if (isset($_POST["nombre"])) {
+        static public function ctrRegistro()
+        {
 
-            $tabla = "registros";
-            $datos = array("nombre" => $_POST["nombre"], "correo" => $_POST["email"], "pswd" => $_POST["pswd"]);
+            if (isset($_POST["nombre"])) {
 
-            $respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
+                $tabla = "registros";
+                $datos = array("nombre" => $_POST["nombre"], "correo" => $_POST["email"], "pswd" => $_POST["pswd"]);
 
-            return $respuesta;
+                $respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
+
+                return $respuesta;
+            }
         }
-    }
 
-    static public function ctrFormularioVideos()
-    {
+        static public function ctrFormularioVideos()
+        {
 
-        if (isset($_POST["nombre_video"])) {
+            if (isset($_POST["nombre_video"])) {
 
+                $tabla = "videos";
+                $datos = array("nombre_video" => $_POST["nombre_video"], "enlace" => $_POST["enlace"], "autor" => $_POST["autor"], "descripcion" => $_POST["descripcion"]);
+
+                $respuesta = ModeloFormularios::mdlNuevoVideo($tabla, $datos);
+
+                return $respuesta;
+            }
+        }
+
+        static public function ctrSeleccionarRegistros($item, $valor)
+        {
             $tabla = "videos";
-            $datos = array("nombre_video" => $_POST["nombre_video"], "enlace" => $_POST["enlace"], "autor" => $_POST["autor"], "descripcion" => $_POST["descripcion"]);
-
-            $respuesta = ModeloFormularios::mdlNuevoVideo($tabla, $datos);
-
-            return $respuesta;
-        }
-    }
-
-    static public function ctrSeleccionarRegistros($item, $valor)
-    {
-        $tabla = "videos";
-
-        $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla, $item, $valor);
-
-
-        return $respuesta;
-    }
-
-    //INGRESO
-
-    public function ctrIngreso()
-    {
-
-        if (isset($_POST["ingresoEmail"])) {
-
-            $tabla = "registros";
-            $item = "correo";
-            $valor = $_POST["ingresoEmail"];
 
             $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla, $item, $valor);
 
-            if ($respuesta["correo"] == $_POST["ingresoEmail"] && $respuesta["pswd"] == $_POST["ingresoPswd"]) {
 
-                $_SESSION["validarIngreso"] = "ok";
-
-                echo '<script>
-
-                if(window.history.replaceState){
-                    window.history.replaceState(null,null,window.location.href);
-                }
-
-                window.location = "index.php?pagina=inicio";
-
-                </script>';
-
-                echo '<div class="alert alert-success"> Ingreso correcto </div>';
-            } else {
-
-                echo '<script>
-
-                if(window.history.replaceState){
-                    window.history.replaceState(null,null,window.location.href);
-                }
-
-                </script>';
-
-                echo '<div class="alert alert-danger"> Usuario no registrado </div>';
-            }
+            return $respuesta;
         }
-    }
 
+        //INGRESO
 
-    //actualizar usuario
-    public static function ctrActualizarRegistro()
-    {
+        public function ctrIngreso()
+        {
 
-        if (isset($_POST["editar_nombre_video"])) {
+            if (isset($_POST["ingresoEmail"])) {
 
-            $tabla = "videos";
-            $datos = array("id" => $_POST["idUsuario"],"editar_nombre_video" => $_POST["editar_nombre_video"], "enlace" => $_POST["enlaeditar_enlacece"], "autor" => $_POST["editar_autor"], "descripcion" => $_POST["editar_descripcion"]);
+                $tabla = "registros";
+                $item = "correo";
+                $valor = $_POST["ingresoEmail"];
 
-            $respuesta = ModeloFormularios::mdlActualizarRegistro($tabla, $datos);
+                $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla, $item, $valor);
 
-            if ($registro == "oky dokie") {
+                if ($respuesta["correo"] == $_POST["ingresoEmail"] && $respuesta["pswd"] == $_POST["ingresoPswd"]) {
 
+                    $_SESSION["validarIngreso"] = "ok";
 
-                echo '<script>
+                    echo '<script>
 
                     if(window.history.replaceState){
                         window.history.replaceState(null,null,window.location.href);
                     }
 
-                </script>';
+                    window.location = "index.php?pagina=inicio";
 
-                echo '<div class="alert alert-success"></div>';
+                    </script>';
+
+                    echo '<div class="alert alert-success"> Ingreso correcto </div>';
+                } else {
+
+                    echo '<script>
+
+                    if(window.history.replaceState){
+                        window.history.replaceState(null,null,window.location.href);
+                    }
+
+                    </script>';
+
+                    echo '<div class="alert alert-danger"> Usuario no registrado </div>';
+                }
             }
+        }
 
 
-            ?>
+        //actualizar usuario
+        public static function ctrActualizarRegistro()
+        {
 
-            return $respuesta;
+            if (isset($_POST["editar_nombre_video"])) {
+
+                $tabla = "videos";
+                $datos = array("id" => $_POST["idUsuario"],"editar_nombre_video" => $_POST["editar_nombre_video"], "enlace" => $_POST["editar_enlace"], "autor" => $_POST["editar_autor"], "descripcion" => $_POST["editar_descripcion"]);
+
+                $respuesta = ModeloFormularios::mdlActualizarRegistro($tabla, $datos);
+
+
+
+
+                    echo '<script>
+
+                        if(window.history.replaceState){
+                            window.history.replaceState(null,null,window.location.href);
+                        }
+
+                    </script>';
+
+                    echo '<div class="alert alert-success"></div>';
+
+
+
+
+                return $respuesta;
+            }
         }
     }
-}
+    
