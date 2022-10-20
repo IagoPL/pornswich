@@ -59,24 +59,24 @@ class ControladorFormularios
                 $_SESSION["validarIngreso"] = "ok";
 
                 echo '<script>
-        
+
                 if(window.history.replaceState){
                     window.history.replaceState(null,null,window.location.href);
                 }
 
                 window.location = "index.php?pagina=inicio";
-            
+
                 </script>';
 
                 echo '<div class="alert alert-success"> Ingreso correcto </div>';
             } else {
 
                 echo '<script>
-        
+
                 if(window.history.replaceState){
                     window.history.replaceState(null,null,window.location.href);
                 }
-            
+
                 </script>';
 
                 echo '<div class="alert alert-danger"> Usuario no registrado </div>';
@@ -100,17 +100,17 @@ class ControladorFormularios
 
 
                 echo '<script>
-                
+
                     if(window.history.replaceState){
                         window.history.replaceState(null,null,window.location.href);
                     }
-                
+
                 </script>';
-        
+
                 echo '<div class="alert alert-success"></div>';
             }
-        
-        
+
+
             ?>
 
             return $respuesta;
